@@ -17,7 +17,13 @@ const videoOptions = {
 }
 
 
-
+/**
+ *
+ * @param url
+ * @returns {Promise<string>}
+ * get url and website and take a screenshot of it,
+ * using the pageres package
+ */
 const takePicture = async (url)=>{
     const file_name = (new URL(url).hostname).split(".")[1]
     await new Pageres()
@@ -28,7 +34,14 @@ const takePicture = async (url)=>{
 }
 
 
-const makeVideo =  (url, image_path) => {
+/**
+ *
+ * @param image_path
+ * @returns {{file: string}}
+ * gets the path of the image and convert it to
+ * mp4 file, using the videoshow package
+ */
+const makeVideo =  (image_path) => {
     const image = [{
         path: image_path + '.png'
     }]
